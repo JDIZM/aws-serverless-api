@@ -4,6 +4,15 @@ import * as cdk from 'aws-cdk-lib';
 import { AwsServerlessApiStack } from '../lib/aws-serverless-api-stack';
 
 const app = new cdk.App();
+
+const defaultConfig = {
+  env: {
+    account: process.env.AWS_ACCOUNT_ID,
+    region: "eu-west-2"
+  },
+};
+
+
 new AwsServerlessApiStack(app, 'AwsServerlessApiStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
@@ -18,4 +27,5 @@ new AwsServerlessApiStack(app, 'AwsServerlessApiStack', {
   // env: { account: '123456789012', region: 'us-east-1' },
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
+  ...defaultConfig
 });
