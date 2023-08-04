@@ -16,7 +16,6 @@ export const handler: Handler<APIGatewayProxyEventV2, APIGatewayProxyStructuredR
             }),
         };
     } catch (err) {
-        console.log(err);
         return {
             statusCode: 500,
             body: JSON.stringify({
